@@ -1,2 +1,2 @@
 # Jenkins-Dockerfile
-Docker File for Jenkins Container
+This Dockerfile is used to setup a Jenkins's instance in a Docker Container.
