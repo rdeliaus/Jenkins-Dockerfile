@@ -12,4 +12,7 @@ docker-compose -p jenkins down
 # Build the updated docker-compose.yml Command
 docker-compose -p jenkins build
 
+# Access Jenkins URL
+http://hostname or IP
+
 Note, current configuration uses Docker storage volumes that are kept by the host os, so they stay live even if containers are deleted.
