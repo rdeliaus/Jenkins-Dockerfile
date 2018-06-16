@@ -1,14 +1,15 @@
 # Jenkins-Dockerfile
-This includes the Dockerfile used to create a Jenkins's instance in a Docker Container.
+This includes the Dockerfile used to create a Jenkins's instance in a Docker Container as well as a NGiNX web proxy server to front-end Jenkins. It uses host storage and a docker network for container communication.
 
-# Create Docker Image Command
-docker build -t myjenkins .
+Reference article: https://engineering.riotgames.com/news/putting-jenkins-docker-container
 
-# Start Jenkins Container Command
-docker run -p 8080:8080 --name=jenkins-master -d myjenkins
+# Bring up the Jenkins and NGiNX Containers Command (See docker-compose.yml script for details)
+docker-compose -p jenkins up -d
 
-# Start Jenkins Container and Mount a Host Volume (includes additional ports for Java)
-docker run -p 8080:8080 -p 50000:50000 --name=jenkins-master --mount source=jenkins-log,target=/var/log/jenkins --mount source=jenkins-data,target=/var/jenkins_home -d myjenkins
+# Bring down the Jenkins and NGiNX Containers Command 
+docker-compose -p jenkins down
 
-# Start Jenkins Container and attach a Docker Network
-docker run -p 8080:8080 -p 50000:50000 --name=jenkins-master --network jenkins-net --mount source=jenkins-log,target=/var/log/jenkins --mount source=jenkins-data,target=/var/jenkins_home -d myjenkins
+# Build the updated docker-compose.yml Command
+docker-compose -p jenkins build
+
+Note, current configuration uses Docker storage volumes that are kept by the host os, so they stay live even if containers are deleted.
