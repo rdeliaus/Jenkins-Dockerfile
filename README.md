@@ -3,6 +3,9 @@ This includes the Dockerfile used to create a Jenkins's instance in a Docker Con
 
 Reference article: https://engineering.riotgames.com/news/putting-jenkins-docker-container
 
+# Build the Docker Environment via the .YML Script
+docker-compose build
+
 # Bring up the Jenkins and NGiNX Containers Command (See docker-compose.yml script for details)
 docker-compose -p jenkins up -d
 
