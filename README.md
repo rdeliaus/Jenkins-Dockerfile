@@ -4,10 +4,10 @@ This includes the Dockerfile used to create a Jenkins's instance in a Docker Con
 Reference article: https://engineering.riotgames.com/news/putting-jenkins-docker-container
 
 # Makefile Commands
-  Make Build - To Build the entire environment
-  Make Run - To Run the entire environment
+  make build - To Build the entire environment
+  make run - To Run the entire environment
   
-  Make stop - To Stop the environment
+  make stop - To Stop the environment
   make clean-data - To Stop the environment and delete containers
   make clean-images - To remove dangling images
   make jenkins-log - To show the Jenkins Log
